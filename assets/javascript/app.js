@@ -11,14 +11,36 @@ var game = {
   questions: [],
   getQuestions: function() {
     // get the json
-    $.getJSON( "./assets/javascript/trivia-data.json", function( data ) {
-      
-      // get 12 random questions and push them to this.questions
+    $.getJSON( "./assets/javascript/trivia-data.json", function(data) {
 
-      // $.each( data, function( key, val ) {
-      //   console.log(val)
-      // });
-    });    
+      // get [number] random questions and push them to this.questions
+      var randomNumbers = [];
+
+      // function getNum(tot) {
+      //   if (randomNumbers.length < tot) {
+      //     var rando = Math.floor(Math.random() * data.results.length);
+      //     if (!randomNumbers.includes(rando)){
+      //       randomNumbers.push(rando)
+      //     }
+      //     getNum(tot)
+      //   }
+      // }      
+      
+      // getNum(this.totalQuestions)
+
+      while (randomNumbers.length < this.totalQuestions) {
+        var rando = Math.floor(Math.random() * data.results.length);
+        if (!randomNumbers.includes(rando)) {
+          randomNumbers.push(rando)
+        }
+      }
+      
+
+      $.each(randomNumbers, function( key, val ) {
+         console.log(val)
+      });
+
+    }.bind(this));    
 
   },
   startGame: function() {
@@ -30,20 +52,17 @@ var game = {
     this.currentQuestion = null;
     this.currentTimer = '';
     this.questionsAnswered = [];
+
+    this.getQuestions();
+
   }
 
 }
 
 
 
-
-
-
-
 $(document).ready(function() {
 
-
-  console.log('get started');
-
+  game.startGame()
 
 })
