@@ -34,19 +34,6 @@ var game = {
     }
     return a;
   },
-  startTimer: function() {
-    this.currentTime = 0;
-    this.currentTimer = setInterval(function() {
-      this.currentTime += 1; 
-      console.log(this.currentTime)
-      if (this.currentTime === 5) {
-        this.stopTimer();
-      }
-    }.bind(this), 1000);
-  },
-  stopTimer: function() {
-    clearInterval(this.currentTimer);
-  },
   getQuestions: function() {
     // get the json
     $.getJSON( "./assets/javascript/trivia-data.json", function(data) {
@@ -55,6 +42,33 @@ var game = {
 
       for (var i = 0; i < this.totalQuestions; i++) {
         results[i].answered = null;
+        results[i].questionTime = 0;
+        results[i].questionTimer = null;
+        results[i].startTimer = function(){
+          results[i].questionTimer = setInterval(function() {
+            this.questionTime += 1;
+            console.log(this.questionTime)
+            if (this.questionTime === 5) {
+              this.stopTimer();
+            }
+          }.bind(this), 1000);
+        };
+        results[i].stopTimer = function() {
+          clearInterval(results[i].questionTimer);
+          console.log('stop');
+        };
+        results[i].answers = [];
+
+        var correct = {answer: results[i].correct_answer, correct: true};
+        results[i].answers.push(correct);
+
+        $.each(results[i].incorrect_answers, function(ind, val){
+          var incorrect = {answer: val, correct: false}
+          results[i].answers.push(incorrect);
+        })
+
+        this.shuffle(results[i].answers);
+
         game.questions.push(results[i]);
       }
 
@@ -70,29 +84,24 @@ var game = {
     $('body').prepend(gameWrapper);
   },
   setupQuestion: function() {
+    // write to dom
     var theQ = this.questions[this.currentQuestion];
     var questionTxt = $('<p>').addClass('questionText').html(theQ.question);
-    var answers = [];
-
-    var correct = {answer: theQ.correct_answer, correct: true }
-    answers.push(correct);
-
-    $.each(theQ.incorrect_answers, function(ind, val){
-      var incorrect = {answer: val, correct: false}
-      answers.push(incorrect);
-    })
-
-    this.shuffle(answers);
 
     $('.questionContainer').append(questionTxt);
     
-    $.each(answers, function(ind, val){
+    $.each(theQ.answers, function(ind, val){
       var myAnswer = $('<div>')
         .attr('data-answer', ind)
         .addClass('answer')
         .html(val.answer);
       $('.questionContainer').append(myAnswer)
     });
+
+    // start the timer
+    theQ.startTimer();
+
+    // listen for events
 
     $('.answer').click(function() {
       //$('.answer').off(); <--------------------- re-enable this
@@ -104,8 +113,6 @@ var game = {
       }
       
     });
-
-    this.startTimer()
     
   }
 }
