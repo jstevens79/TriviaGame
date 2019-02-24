@@ -7,9 +7,7 @@ var game = {
   score: 0,
   totalQuestions: 12,
   currentQuestion: 0,
-  currentTime: 0,
-  currentTimer: '',
-  maxTime: 30,
+  maxTime: 20,
   questions: [],
   startGame: function() {
     // set up the initial variables
@@ -18,7 +16,6 @@ var game = {
     this.score = 0;
     this.totalQuestions = 12;
     this.currentQuestion = 0;
-    this.currentTimer = '';
     this.questionsAnswered = [];
     this.setupGame();
     this.getQuestions();
@@ -34,6 +31,20 @@ var game = {
     }
     return a;
   },
+  renderTimer: function(time) {
+    function timeConvert() {
+      if (time < 10) {
+        return '0' + time;
+      }
+      return time;
+    }
+    
+    $('.timerText').text('00:' + timeConvert());
+    $('.clockHand').css({
+      'transform' : 'translateX(-50%) rotate(' + (time * 6) + 'deg)'
+    })
+    //$('.timer').text(time);
+  },
   getQuestions: function() {
     // get the json
     $.getJSON( "./assets/javascript/trivia-data.json", function(data) {
@@ -42,13 +53,13 @@ var game = {
 
       for (var i = 0; i < this.totalQuestions; i++) {
         results[i].answered = null;
-        results[i].questionTime = 0;
+        results[i].questionTime = game.maxTime;
         results[i].questionTimer = null;
         results[i].startTimer = function(){
           results[i].questionTimer = setInterval(function() {
-            this.questionTime += 1;
-            console.log(this.questionTime)
-            if (this.questionTime === 5) {
+            this.questionTime -= 1;
+            game.renderTimer(this.questionTime);
+            if (this.questionTime === 0) {
               this.stopTimer();
             }
           }.bind(this), 1000);
@@ -79,12 +90,25 @@ var game = {
   },
   setupGame: function() {
     var gameWrapper = $('<div>').addClass('gameWrapper');
+    var timer = $('<div>').addClass('timerContainer').append(this.createTimer());
     var questionsContainer = $('<div>').addClass('questionContainer');
-    gameWrapper.append(questionsContainer);
+    gameWrapper.append(timer, questionsContainer);
     $('body').prepend(gameWrapper);
   },
+  createTimer: function() {
+    var timer = $('<div>').addClass('timer');
+    var timerText = $('<span>').addClass('timerText').append('00:00');
+    var clockWrapper = $('<div>').addClass('clockWrapper');
+    var clockInner = $('<div>').addClass('clockInner');
+    var clockHand = $('<div>').addClass('clockHand');
+    clockWrapper.append(clockInner, clockHand);
+    timer.append(timerText, clockWrapper)
+    return timer;
+  },
   setupQuestion: function() {
-    // write to dom
+    $('.questionContainer').empty();
+    this.renderTimer(this.maxTime);
+    
     var theQ = this.questions[this.currentQuestion];
     var questionTxt = $('<p>').addClass('questionText').html(theQ.question);
 
@@ -101,16 +125,25 @@ var game = {
     // start the timer
     theQ.startTimer();
 
-    // listen for events
-
+    // handle clicks
     $('.answer').click(function() {
-      //$('.answer').off(); <--------------------- re-enable this
-
-      if (answers[$(this).data('answer')].correct) {
+      theQ.stopTimer();
+      $('.answer').off();
+      
+      if (theQ.answers[$(this).data('answer')].correct) {
         // do stuff if it's correct
+        console.log('correct')
       } else {
         //do stuff if it's wrong
+        console.log('incorrect')
       }
+
+      // next question test
+
+      setTimeout(function() {
+        game.currentQuestion += 1;
+        game.setupQuestion()
+      }, 3000)
       
     });
     
@@ -119,7 +152,5 @@ var game = {
 
 
 $(document).ready(function() {
-
   game.startGame()
-
 })
