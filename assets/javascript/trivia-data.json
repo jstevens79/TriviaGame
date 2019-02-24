@@ -3,49 +3,145 @@
   "results": [{
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "hard",
-      "question": "Which was the first of Alfred Hitchcock&#039;s movies to be filmed in colour?",
-      "correct_answer": "Rope",
+      "difficulty": "easy",
+      "question": "What breed of dog was &#039;Marley&#039; in the film &#039;Marley &amp; Me&#039;?",
+      "correct_answer": "Labrador Retriever",
       "incorrect_answers": [
-        "Psycho",
-        "Vertigo",
-        "Rebecca"
+        "Golden Retriever",
+        "Dalmatian",
+        "Shiba Inu"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "In the film &quot;Interstellar&quot;, how long did they spend on Miller&#039;s planet?",
-      "correct_answer": "23 years, 4 months, and 8 days",
+      "difficulty": "easy",
+      "question": "Which of the following is not the name of a &#039;Bond Girl&#039;? ",
+      "correct_answer": "Vanessa Kensington",
       "incorrect_answers": [
-        "15 years, 2 months, and 15 days",
-        "10 months and 6 days",
-        "26 years, 4 months, and 10 days"
+        "Pam Bouvier",
+        "Mary Goodnight",
+        "Wai Lin"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "hard",
-      "question": "In the 1976 film &#039;Taxi Driver&#039;, how many guns did Travis buy from the salesman?",
-      "correct_answer": "4",
+      "difficulty": "easy",
+      "question": "Which of the following was not one of &#039;The Magnificent Seven&#039;?",
+      "correct_answer": "Clint Eastwood",
       "incorrect_answers": [
-        "2",
-        "6",
-        "1"
+        "Steve McQueen",
+        "Charles Bronson",
+        "Robert Vaughn"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which 1958 movie starred Kirk Douglas and Tony Curtis as half-brothers Einar and Eric?",
-      "correct_answer": "The Vikings ",
+      "difficulty": "easy",
+      "question": "Which of the following movies was not based on a novel by Stephen King? ",
+      "correct_answer": "The Thing",
       "incorrect_answers": [
-        "The Long Ships",
-        "Prince Valiant",
-        "Spartacus"
+        "Carrie",
+        "Misery",
+        "The Green Mile"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which movie released in 2016 features Superman and Batman fighting?",
+      "correct_answer": "Batman v Superman: Dawn of Justice",
+      "incorrect_answers": [
+        "Batman v Superman: Superapocalypse",
+        "Batman v Superman: Black of Knight",
+        "Batman v Superman: Knightfall"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Daniel Radcliffe became a global star in the film industry due to his performance in which film franchise?",
+      "correct_answer": "Harry Potter",
+      "incorrect_answers": [
+        "Ted",
+        "Spy Kids",
+        "Pirates of the Caribbean "
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who starred as Bruce Wayne and Batman in Tim Burton&#039;s 1989 movie &quot;Batman&quot;?",
+      "correct_answer": "Michael Keaton",
+      "incorrect_answers": [
+        "George Clooney",
+        "Val Kilmer",
+        "Adam West"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What name did Tom Hanks give to his volleyball companion in the film `Cast Away`?",
+      "correct_answer": "Wilson",
+      "incorrect_answers": [
+        "Friday",
+        "Jones",
+        "Billy"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who directed &quot;E.T. the Extra-Terrestrial&quot; (1982)?",
+      "correct_answer": "Steven Spielberg",
+      "incorrect_answers": [
+        "Stanley Kubrick",
+        "James Cameron",
+        "Tim Burton"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the highest grossing film of all time (without adjusting for inflation)?",
+      "correct_answer": "Avatar",
+      "incorrect_answers": [
+        "Jurassic World",
+        "Star Wars: The Force Awakens",
+        "Titanic"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which animated movie was first to feature a celebrity as a voice actor?",
+      "correct_answer": "Aladdin",
+      "incorrect_answers": [
+        "Toy Story",
+        "James and the Giant Peach",
+        "The Hunchback of Notre Dame"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "When was the movie &#039;Con Air&#039; released?",
+      "correct_answer": "1997",
+      "incorrect_answers": [
+        "1985",
+        "1999",
+        "1990"
       ]
     },
     {
@@ -63,13 +159,13 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which retired American football quarterback played himself in &#039;Ace Ventura: Pet Detective&#039; and &#039;Little Nicky&#039;?",
-      "correct_answer": "Dan Marino",
+      "difficulty": "easy",
+      "question": "Who played Deputy Marshal Samuel Gerard in the 1993 film &quot;The Fugitive&quot;?",
+      "correct_answer": "Tommy Lee Jones",
       "incorrect_answers": [
-        "John Elway",
-        "Tom Brady",
-        "Joe Montana"
+        "Harrison Ford",
+        "Harvey Keitel",
+        "Martin Landau"
       ]
     },
     {
@@ -87,13 +183,61 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "In which 1973 film does Yul Brynner play a robotic cowboy who malfunctions and goes on a killing\tspree?",
-      "correct_answer": "Westworld",
+      "difficulty": "easy",
+      "question": "Which actress danced the twist with John Travolta in &#039;Pulp Fiction&#039;?",
+      "correct_answer": "Uma Thurman",
       "incorrect_answers": [
-        "Runaway",
-        "Android",
-        "The Terminators"
+        "Kathy Griffin",
+        "Pam Grier",
+        "Bridget Fonda"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who starred in the film 1973 movie &quot;Enter The Dragon&quot;?",
+      "correct_answer": "Bruce Lee",
+      "incorrect_answers": [
+        "Jackie Chan",
+        "Jet Li",
+        " Yun-Fat Chow"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which movie contains the quote, &quot;Say hello to my little friend!&quot;?",
+      "correct_answer": "Scarface",
+      "incorrect_answers": [
+        "Reservoir Dogs",
+        "Heat",
+        "Goodfellas"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who directed the movies &quot;Pulp Fiction&quot;, &quot;Reservoir Dogs&quot; and &quot;Django Unchained&quot;?",
+      "correct_answer": "Quentin Tarantino",
+      "incorrect_answers": [
+        "Martin Scorcese",
+        "Steven Spielberg",
+        "James Cameron"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "The Queen song `A Kind Of Magic` is featured in which 1986 film?",
+      "correct_answer": "Highlander",
+      "incorrect_answers": [
+        "Flash Gordon",
+        "Labyrinth",
+        "Howard the Duck"
       ]
     },
     {
@@ -123,18 +267,6 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who directed the 1973 film &quot;American Graffiti&quot;?",
-      "correct_answer": "George Lucas",
-      "incorrect_answers": [
-        "Ron Howard",
-        "Francis Ford Coppola",
-        "Steven Spielberg"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
       "difficulty": "easy",
       "question": "This movie contains the quote, &quot;Houston, we have a problem.&quot;",
       "correct_answer": "Apollo 13",
@@ -159,25 +291,13 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "This movie contains the quote, &quot;What we&#039;ve got here is a failure to communicate.&quot;",
-      "correct_answer": "Cool Hand Luke",
+      "difficulty": "easy",
+      "question": "What is the orange and white bot&#039;s name in &quot;Star Wars: The Force Awakens&quot;?",
+      "correct_answer": "BB-8",
       "incorrect_answers": [
-        "Bonnie and Clyde",
-        "The Graduate",
-        "In the Heat of the Night"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "What is the name of the first &quot;Star Wars&quot; film by release order?",
-      "correct_answer": "A New Hope",
-      "incorrect_answers": [
-        "The Phantom Menace",
-        "The Force Awakens",
-        "Revenge of the Sith"
+        "BB-3",
+        "AA-A",
+        "R2-D2"
       ]
     },
     {
@@ -207,13 +327,13 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which iconic character is featured in movies such as &quot;The Enforcer&quot;, &quot;Sudden Impact&quot;, and &quot;The Dead Pool&quot;?",
-      "correct_answer": "Dirty Harry",
+      "difficulty": "easy",
+      "question": "Which movie includes a giant bunny-like spirit who has magic powers including growing trees?",
+      "correct_answer": "My Neighbor Totoro",
       "incorrect_answers": [
-        "Indiana Jones",
-        "James Bond",
-        "Harry Potter"
+        "Hop",
+        "Rise of the Guardians",
+        "Alice in Wonderland"
       ]
     },
     {
@@ -231,37 +351,13 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who plays the Nemesis in the Resident Evil movies?",
-      "correct_answer": "Matthew Taylor",
+      "difficulty": "easy",
+      "question": "What is the oldest Disney film?",
+      "correct_answer": "Snow White and the Seven Dwarfs",
       "incorrect_answers": [
-        "Jason Dip",
-        "Eric Mabius",
-        "Jimmy Matts"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "What is the name of the villian in the 2015 Russian-American Sci-Fi Movie &quot;Hardcore Henry&quot;?",
-      "correct_answer": "Akan",
-      "incorrect_answers": [
-        "Estelle",
-        "Jimmy",
-        "Henry"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which movie of film director Stanley Kubrick is known to be an adaptation of a Stephen King novel?",
-      "correct_answer": "The Shining",
-      "incorrect_answers": [
-        "2001: A Space Odyssey",
-        " Dr. Strangelove ",
-        "Eyes Wide Shut"
+        "Pinocchio",
+        "Dumbo",
+        "Fantasia"
       ]
     },
     {
@@ -279,49 +375,37 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "hard",
-      "question": "In the 1964 film &quot;Zulu&quot;, what song does the British Army company sing before the final battle?",
-      "correct_answer": "Men of Harlech",
+      "difficulty": "easy",
+      "question": "In the movie &quot;Cast Away&quot; the main protagonist&#039;s best friend while on the island is named",
+      "correct_answer": "Wilson",
       "incorrect_answers": [
-        "Scotland the Brave",
-        "Colonel Bogey March",
-        "The British Grenadiers"
+        "Carson",
+        "Jackson",
+        "Willy"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "What is the correct phrase for the Latin saying &quot;Romanes Eunt Domus&quot; in Monty Python&#039;s Life of Brian?",
-      "correct_answer": "Romani Ite Domum",
+      "difficulty": "easy",
+      "question": "Who in Pulp Fiction says &quot;No, they got the metric system there, they wouldn&#039;t know what the fuck a Quarter Pounder is.&quot;",
+      "correct_answer": "Vincent Vega",
       "incorrect_answers": [
-        "Romans Go Home",
-        "Roxani Ite Domum",
-        "Tomate Ite Domum"
+        "Jules Winnfield",
+        "Jimmie Dimmick",
+        "Butch Coolidge"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "hard",
-      "question": "In the movie &quot;Scream&quot; who is Ghost Face?",
-      "correct_answer": "Billy Loomis and Stu Macher",
+      "difficulty": "easy",
+      "question": "In &quot;Jurassic World&quot;, what is the name of the dinosaur that is a genetic hybrid?",
+      "correct_answer": "Indominus Rex",
       "incorrect_answers": [
-        "Dewey Riley",
-        "Sidney Prescott",
-        "Archie Prescott and Philip Marv"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who voices the main character Blu in the 2011 animated film &quot;Rio&quot;?",
-      "correct_answer": "Jesse Eisenberg",
-      "incorrect_answers": [
-        "Michael Cera",
-        "Jonah Hill",
-        "Zach Galifianakis"
+        "Mosasaurus",
+        "Pteranodon",
+        "Tyrannosaurus Rex "
       ]
     },
     {
@@ -339,49 +423,37 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "This trope refers to minor characters that are killed off to show how a monster works.",
-      "correct_answer": "Red Shirt",
+      "difficulty": "easy",
+      "question": "In the movie &quot;Spaceballs&quot;, what are the Spaceballs attempting to steal from Planet Druidia?",
+      "correct_answer": "Air",
       "incorrect_answers": [
-        "Minions",
-        "Expendables",
-        "Cannon Fodder"
+        "The Schwartz",
+        "Princess Lonestar",
+        "Meatballs"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who voiced Metalbeard in &quot;The Lego Movie&quot;?",
-      "correct_answer": "Nick Offerman",
+      "difficulty": "easy",
+      "question": "In the movie Gremlins, after what time of day should you not feed Mogwai?",
+      "correct_answer": "Midnight",
       "incorrect_answers": [
-        "Liam Neeson",
-        "Morgan Freeman",
-        "Will Arnet"
+        "Evening",
+        "Morning",
+        "Afternoon"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who played the Cenobite called &quot;Pinhead&quot; in the original Hellraiser films?",
-      "correct_answer": "Doug Bradley",
+      "difficulty": "easy",
+      "question": "When does &quot;Rogue One: A Star Wars Story&quot; take place chronologically in the series?",
+      "correct_answer": "Between Episode 3 and 4",
       "incorrect_answers": [
-        "Doug Jones",
-        "Doug Savant",
-        "Doug Benson"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "What is the correct spelling of the protagonist of the book in The NeverEnding Story (1984)?",
-      "correct_answer": "Atreyu",
-      "incorrect_answers": [
-        "Atrayu",
-        "Atraiyu",
-        "Atraeyu"
+        "After Episode 6",
+        "Before Episode 1",
+        "Between Episode 4 and 5"
       ]
     },
     {
@@ -411,193 +483,121 @@
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "In which movie does Robin Williams&#039; character have to disguise themselves into a woman?",
-      "correct_answer": "Mrs. Doubtfire",
+      "difficulty": "easy",
+      "question": "At the end of the 2001 film &quot;Rat Race&quot;, whose concert do the contestants crash?",
+      "correct_answer": "Smash Mouth",
       "incorrect_answers": [
-        "Old Dogs",
-        "Jumanji",
-        "Awakenings"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "What type of cheese, loved by Wallace and Gromit, had it&#039;s sale prices rise after their successful short films?",
-      "correct_answer": "Wensleydale",
-      "incorrect_answers": [
-        "Cheddar",
-        "Moon Cheese",
-        "Edam"
+        "Bowling for Soup",
+        "Sum 41",
+        "Linkin Park"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
       "difficulty": "easy",
-      "question": "In the movie &quot;Blade Runner&quot;, what is the term used for human-like androids ?",
-      "correct_answer": "Replicants",
+      "question": "Who plays the character of Po in the Kung Fu Panda movies?",
+      "correct_answer": "Jack Black",
       "incorrect_answers": [
-        "Cylons",
-        "Synthetics",
-        "Skinjobs"
+        "Mirana Jonnes",
+        "McConahey Ramses",
+        "Jim Petersson"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which famous singer was portrayed by actor Kevin Spacey in the 2004 biographical film &quot;Beyond the Sea&quot;?",
-      "correct_answer": "Bobby Darin",
+      "difficulty": "easy",
+      "question": "The 2016 Disney animated film &#039;Moana&#039; is based on which culture?",
+      "correct_answer": "Polynesian",
       "incorrect_answers": [
-        "Louis Armstrong",
-        "Frank Sinatra",
-        "Dean Martin"
+        "Native American",
+        "Japanese",
+        "Nordic"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "hard",
-      "question": "In order to cut costs, what were most of the extras of Mad Max (1979) paid with?",
-      "correct_answer": "Beer",
+      "difficulty": "easy",
+      "question": "In the 1995 film &quot;Balto&quot;, who are Steele&#039;s accomplices?",
+      "correct_answer": "Kaltag, Nikki, and Star",
       "incorrect_answers": [
-        "Fast food",
-        "Food stamps",
-        "They weren&#039;t paid"
+        "Dusty, Kirby, and Ralph",
+        "Nuk, Yak, and Sumac",
+        "Jenna, Sylvie, and Dixie"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "hard",
-      "question": "In what year did Clint Eastwood star as Inspector Harry Callahan in the film &quot;Dirty Harry&quot;?",
-      "correct_answer": "1971",
+      "difficulty": "easy",
+      "question": "What is the name of the island that &quot;Jurassic Park&quot; is built on?",
+      "correct_answer": "Isla Nublar",
       "incorrect_answers": [
-        "1975",
-        "1983",
-        "1969"
+        "Isla Sorna",
+        "Isla Muerta",
+        "Isla Pena"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Mark Wahlberg played the titular character of which 2008 video-game adaptation?",
-      "correct_answer": "Max Payne",
+      "difficulty": "easy",
+      "question": "What was Bruce Campbell&#039;s iconic one-liner after getting a chainsaw hand in Evil Dead 2?",
+      "correct_answer": "Groovy.",
       "incorrect_answers": [
-        "Alan Wake",
-        "Hitman",
-        "God Of War"
+        "Gnarly.",
+        "Perfect.",
+        "Nice."
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Leonardo Di Caprio won his first Best Actor Oscar for his performance in which film?",
-      "correct_answer": "The Revenant",
+      "difficulty": "easy",
+      "question": "For the film &quot;Raiders of The Lost Ark&quot;, what was Harrison Ford sick with during the filming of the Cairo chase?",
+      "correct_answer": "Dysentery",
       "incorrect_answers": [
-        "The Wolf Of Wall Street",
-        "Shutter Island",
-        "Inception"
+        "Anemia",
+        "Constipation",
+        "Acid Reflux "
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which documentary film maker wrote and starred in the film &quot;My Scientology Movie&quot; which first debuted in 2015?",
-      "correct_answer": "Louis Theroux",
+      "difficulty": "easy",
+      "question": "What was the first feature-length computer-animated movie?",
+      "correct_answer": "Toy Story",
       "incorrect_answers": [
-        "Errol Morris",
-        "Joe Berlinger",
-        "Adam Curtis"
+        "Tron",
+        "Lion king",
+        "101 Dalmatians"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "hard",
-      "question": "In what year does Jurassic World open in the &quot;Jurassic Park&quot; universe?",
-      "correct_answer": "2005",
+      "difficulty": "easy",
+      "question": "In Big Hero 6, what fictional city is the Big Hero 6 from?",
+      "correct_answer": "San Fransokyo",
       "incorrect_answers": [
-        "2007",
-        "2015",
-        "2020"
+        "San Tokyo",
+        "Tokysisco",
+        "Sankyo"
       ]
     },
     {
       "category": "Entertainment: Film",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "Who plays &quot;Bruce Wayne&quot; in the 2008 movie &quot;The Dark Knight&quot;?",
-      "correct_answer": "Christian Bale",
+      "difficulty": "easy",
+      "question": "Where does the original Friday The 13th movie take place?",
+      "correct_answer": "Camp Crystal Lake",
       "incorrect_answers": [
-        "Michael Caine",
-        "Ron Dean",
-        "Heath Ledger"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "In Mulan (1998), who is the leader of the Huns?",
-      "correct_answer": "Shan Yu",
-      "incorrect_answers": [
-        "Chien-Po",
-        "Li Shang",
-        "Fa Zhou"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "What character in the Winnie the Pooh films was added by Disney and does not appear in the original books?",
-      "correct_answer": "Gopher",
-      "incorrect_answers": [
-        "Tigger",
-        "Heffalumps",
-        "Rabbit"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "In Finding Nemo, what was the name of Nemo&#039;s mom?",
-      "correct_answer": "Coral",
-      "incorrect_answers": [
-        "Sandy",
-        "Pearl",
-        "Shelly"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "Which director directed the movie &quot;Pan&#039;s Labyrinth&quot;?",
-      "correct_answer": "Guillermo Del Toro",
-      "incorrect_answers": [
-        "Alfonso Cuar&oacute;n",
-        "Alejandro Gonz&aacute;lez I&ntilde;&aacute;rritu",
-        " Alejandro Jodorowsky"
-      ]
-    },
-    {
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "medium",
-      "question": "What film did James Cameron&#039;s Avatar dethrone as the highest-grossing film ever?",
-      "correct_answer": "Titanic",
-      "incorrect_answers": [
-        "Star Wars",
-        "Gone with the Wind",
-        "Jaws"
+        "Packanack",
+        "Higgins Haven",
+        "Camp Forest Green"
       ]
     }
   ]
