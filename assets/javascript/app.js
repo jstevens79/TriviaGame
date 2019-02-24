@@ -70,11 +70,11 @@ var game = {
         };
         results[i].answers = [];
 
-        var correct = {answer: results[i].correct_answer, correct: true};
+        var correct = {answer: results[i].correct_answer, correct: true, selected: false};
         results[i].answers.push(correct);
 
         $.each(results[i].incorrect_answers, function(ind, val){
-          var incorrect = {answer: val, correct: false}
+          var incorrect = {answer: val, correct: false, selected: false}
           results[i].answers.push(incorrect);
         })
 
@@ -108,19 +108,12 @@ var game = {
   setupQuestion: function() {
     $('.questionContainer').empty();
     this.renderTimer(this.maxTime);
-    
     var theQ = this.questions[this.currentQuestion];
     var questionTxt = $('<p>').addClass('questionText').html(theQ.question);
-
-    $('.questionContainer').append(questionTxt);
+    var answers = $('<div>').addClass('answersContainer');
+    $('.questionContainer').append(questionTxt, answers);
     
-    $.each(theQ.answers, function(ind, val){
-      var myAnswer = $('<div>')
-        .attr('data-answer', ind)
-        .addClass('answer')
-        .html(val.answer);
-      $('.questionContainer').append(myAnswer)
-    });
+    this.renderAnswers();
 
     // start the timer
     theQ.startTimer();
@@ -129,24 +122,58 @@ var game = {
     $('.answer').click(function() {
       theQ.stopTimer();
       $('.answer').off();
-      
+      theQ.answers[$(this).data('answer')].selected = true;
+
+      game.renderAnswers(true);
+
       if (theQ.answers[$(this).data('answer')].correct) {
-        // do stuff if it's correct
-        console.log('correct')
+        //$(this).append('<i class="far fa-check-circle"></i>');
+        
       } else {
-        //do stuff if it's wrong
-        console.log('incorrect')
+        //$(this).append('<i class="far fa-times-circle"></i>');
+
       }
 
       // next question test
-
       setTimeout(function() {
         game.currentQuestion += 1;
         game.setupQuestion()
-      }, 3000)
+      }, 3000);
       
     });
     
+  },
+  renderAnswers: function(grade) {
+
+    var answers = this.questions[this.currentQuestion].answers;
+    $('.answersContainer').empty();
+    
+    $.each(answers, function(ind, val){
+
+      var myAnswer = $('<div>')
+        .attr('data-answer', ind)
+        .addClass('answer')
+        .html(val.answer); 
+
+      if (grade !== undefined) {
+        if (val.selected) {
+          if (val.correct) {
+            myAnswer.addClass('disabled selected correct');
+          } else {
+            myAnswer.addClass('disabled selected wrong');
+          }
+        } else {
+          if (val.correct) {
+            myAnswer.addClass('disabled unselected correct')
+          } else {
+            myAnswer.addClass('disabled')
+          }
+        }
+      }
+      
+        
+      $('.answersContainer').append(myAnswer)
+    });
   }
 }
 
