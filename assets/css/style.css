@@ -1,31 +1,114 @@
 
 body {
   font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5em;
+  background: #40C1D6;
+  padding: 20px;
 }
 
+.title {
+  font-size: 4em;
+  line-height: 1em;
+  text-align: center;
+  padding: 22px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.title i {
+  font-size: .5em;
+  position: relative;
+  top: -.25em;
+  
+}
+
+.gameWrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.questionArea {
+  flex: 1;
+  display: flex;
+}
+
+.questionContainer {
+  flex: 2;
+  background: white;
+}
+
+.responseContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #E6E7E8;
+  position: relative;
+  overflow: hidden;
+}
+
+.responseContainer::after {
+  content: '';
+  display: block;
+  background-image:  url('../images/popcorn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  min-width: 200px;
+  bottom: -10%;
+  right: -10%;
+}
+
+
 .questionText {
+  padding: 60px 40px 40px 40px;
+  line-height: 1.5em;
+}
+
+.answersContainer {
   padding: 20px;
+}
+
+.timerContainer {
+  flex: 0;
+  background: #2C2C2C;
+  color: white;
 }
 
 .timer {
   display: flex;
   align-items: center;
-  background: black;
-  color: white;
-  justify-content: space-between;
-  padding: 10px;
+  justify-content: center;
+  padding: 20px;
 }
 
 .timerText {
   font-size: 2.2em;
   padding: 20px;
   font-weight: 300;
+  flex: 1;
+  text-align: right;
+}
+
+.clockContainer {
+  flex: 1;
+  align-content: flex-start;
 }
 
 .clockWrapper {
-  width: 80px;
-  height: 80px;
-  background: black;
+  width: 60px;
+  height: 60px;
+  background: #2C2C2C;
   border: solid 1px white;
   border-radius: 50%;
   position: relative;
@@ -60,7 +143,7 @@ body {
   position: absolute;
   width: 8%;
   height: 8%;
-  background: red;
+  background: #E83439;
   left: 50%;
   top: 50%;
   border-radius: 50%;
@@ -71,8 +154,12 @@ body {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
   justify-content: space-between;
+  background: white;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 19px;
+  border: solid 1px #E6E7E8;
 }
 
 .answer i {
@@ -89,24 +176,41 @@ body {
 
 .answer:hover {
   cursor: pointer;
-  background: rgba(0,0,0,0.2);
+  background: #E6E7E8;
 }
 
 .answer.disabled {
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .disabled:hover{
   cursor: default;
-  background: none;
+  background: white;
 }
 
 .selected.correct {
   opacity: 1;
+  color: white;
   background: green;
 }
 
-.selected.wrong {
+.disabled.unselected.correct {
+  animation: fadeIn .5s ease 1s 1 forwards;
+}
+
+.disabled.selected.wrong {
   opacity: 1;
-  background: red;
+  color: white;
+  background: rgba(232,52,57, 1);
+  animation: fadeOut .5s ease 1s 1 forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1 }
+  to { opacity: 0.4}
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.4; background-color: white }
+  to { opacity: 1; background-color: green; color: white; }
 }

@@ -43,45 +43,51 @@ var game = {
     $('.clockHand').css({
       'transform' : 'translateX(-50%) rotate(' + (time * 6) + 'deg)'
     })
-    //$('.timer').text(time);
   },
   getQuestions: function() {
     // get the json
     $.getJSON( "./assets/javascript/trivia-data.json", function(data) {
       var results = data.results;
       this.shuffle(results);
+      var questions = results.slice(0, this.totalQuestions);
 
-      for (var i = 0; i < this.totalQuestions; i++) {
-        results[i].answered = null;
-        results[i].questionTime = game.maxTime;
-        results[i].questionTimer = null;
-        results[i].startTimer = function(){
-          results[i].questionTimer = setInterval(function() {
-            this.questionTime -= 1;
-            game.renderTimer(this.questionTime);
-            if (this.questionTime === 0) {
-              this.stopTimer();
-            }
-          }.bind(this), 1000);
-        };
-        results[i].stopTimer = function() {
-          clearInterval(results[i].questionTimer);
-          console.log('stop');
-        };
-        results[i].answers = [];
+      $.each(questions, function(ind, val) {
+        var newObj = {
+          answered: null, // <- may not need this...
+          questionTime: game.maxTime,
+          questionTimer: null,
+          startTimer: function() {
+            this.questionTimer = setInterval(function() {
+              this.questionTime -= 1;
+              game.renderTimer(this.questionTime);
+              if (this.questionTime === 0) {
+                this.answered = true; // <- may not need this...
+                this.stopTimer();
+              }
+            }.bind(this), 1000)
+          },
+          stopTimer: function() {
+            clearInterval(this.questionTimer)
+          },
+          answers: []
 
-        var correct = {answer: results[i].correct_answer, correct: true, selected: false};
-        results[i].answers.push(correct);
+        }
 
-        $.each(results[i].incorrect_answers, function(ind, val){
-          var incorrect = {answer: val, correct: false, selected: false}
-          results[i].answers.push(incorrect);
+        var correct = {answer: val.correct_answer, correct: true, selected: false};
+        newObj.answers.push(correct);
+
+        $.each(val.incorrect_answers, function(ind, ans) {
+          var incorrect = {answer: ans, correct: false, selected: false}
+          newObj.answers.push(incorrect);
         })
 
-        this.shuffle(results[i].answers);
+        game.shuffle(newObj.answers);
+        var combined = {...val,...newObj};
 
-        game.questions.push(results[i]);
-      }
+        game.questions.push(combined);
+
+      })
+
 
       this.setupQuestion();
 
@@ -89,11 +95,17 @@ var game = {
 
   },
   setupGame: function() {
+    var title = $('<h1>')
+      .addClass('title')
+      .html('<i class="fas fa-star"></i> Movie Trivia <i class="fas fa-star"></i>');
     var gameWrapper = $('<div>').addClass('gameWrapper');
-    var timer = $('<div>').addClass('timerContainer').append(this.createTimer());
+    var questionArea = $('<div>').addClass('questionArea');
+    var responseContainer = $('<div>').addClass('responseContainer');
     var questionsContainer = $('<div>').addClass('questionContainer');
-    gameWrapper.append(timer, questionsContainer);
-    $('body').prepend(gameWrapper);
+    questionArea.append(questionsContainer, responseContainer)
+    var timer = $('<div>').addClass('timerContainer').append(this.createTimer());
+    gameWrapper.append(questionArea, timer);
+    $('body').prepend(title, gameWrapper);
   },
   createTimer: function() {
     var timer = $('<div>').addClass('timer');
@@ -102,11 +114,13 @@ var game = {
     var clockInner = $('<div>').addClass('clockInner');
     var clockHand = $('<div>').addClass('clockHand');
     clockWrapper.append(clockInner, clockHand);
-    timer.append(timerText, clockWrapper)
+    var clockContainer = $('<div>').addClass('clockContainer').append(clockWrapper);
+    timer.append(timerText, clockContainer);
     return timer;
   },
   setupQuestion: function() {
     $('.questionContainer').empty();
+    $('.responseContainer').empty();
     this.renderTimer(this.maxTime);
     var theQ = this.questions[this.currentQuestion];
     var questionTxt = $('<p>').addClass('questionText').html(theQ.question);
@@ -115,11 +129,14 @@ var game = {
     
     this.renderAnswers();
 
+    console.log(theQ)
+
     // start the timer
     theQ.startTimer();
 
     // handle clicks
     $('.answer').click(function() {
+      // put all of this logic back into the question object
       theQ.stopTimer();
       $('.answer').off();
       theQ.answers[$(this).data('answer')].selected = true;
@@ -127,18 +144,18 @@ var game = {
       game.renderAnswers(true);
 
       if (theQ.answers[$(this).data('answer')].correct) {
-        //$(this).append('<i class="far fa-check-circle"></i>');
-        
+        $('.responseContainer').text('Good job!');
       } else {
-        //$(this).append('<i class="far fa-times-circle"></i>');
+        var getCorrect = theQ.answers.filter(function(ques){
+          return ques.correct === true
+        })
 
-      }
+        setTimeout(function() {
+          $('.responseContainer').text('No, the correct answer was ' + getCorrect[0].answer);
+        }, 1000)
 
-      // next question test
-      setTimeout(function() {
-        game.currentQuestion += 1;
-        game.setupQuestion()
-      }, 3000);
+        
+      }     
       
     });
     
@@ -166,14 +183,28 @@ var game = {
           if (val.correct) {
             myAnswer.addClass('disabled unselected correct')
           } else {
-            myAnswer.addClass('disabled')
+            myAnswer.addClass('disabled wrong')
           }
         }
+
       }
-      
-        
+
       $('.answersContainer').append(myAnswer)
     });
+
+    if (grade !== undefined) {
+      setTimeout(function(){
+        game.goToNextQuestion();
+      }, 1200)
+    }
+    
+  },
+  goToNextQuestion: function() {
+     // next question test
+     setTimeout(function() {
+      game.currentQuestion += 1;
+      game.setupQuestion();
+    }, 3000);
   }
 }
 
