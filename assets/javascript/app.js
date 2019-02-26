@@ -8,6 +8,22 @@ var game = {
   totalQuestions: 12,
   currentQuestion: 0,
   maxTime: 20,
+  questionTime: 0,
+  questionTimer: null,
+  startTimer: function() {
+    this.questionTime = this.maxTime;
+    this.questionTimer = setInterval(function() {
+      this.questionTime -=1;
+      this.renderTimer(this.questionTime);
+      if (this.questionTime === 0) {
+        this.stopTimer();
+        this.renderAnswers(true);
+      }
+    }.bind(this), 1000)
+  },
+  stopTimer: function() {
+    clearInterval(this.questionTimer)
+  },
   questions: [],
   startGame: function() {
     // set up the initial variables
@@ -51,26 +67,13 @@ var game = {
       this.shuffle(results);
       var questions = results.slice(0, this.totalQuestions);
 
+      // generate new objects for each question
       $.each(questions, function(ind, val) {
         var newObj = {
           answered: null, // <- may not need this...
           questionTime: game.maxTime,
           questionTimer: null,
-          startTimer: function() {
-            this.questionTimer = setInterval(function() {
-              this.questionTime -= 1;
-              game.renderTimer(this.questionTime);
-              if (this.questionTime === 0) {
-                this.answered = true; // <- may not need this...
-                this.stopTimer();
-              }
-            }.bind(this), 1000)
-          },
-          stopTimer: function() {
-            clearInterval(this.questionTimer)
-          },
-          answers: []
-
+          answers: [],
         }
 
         var correct = {answer: val.correct_answer, correct: true, selected: false};
@@ -88,7 +91,7 @@ var game = {
 
       })
 
-
+      // set up the first question
       this.setupQuestion();
 
     }.bind(this));    
@@ -129,18 +132,15 @@ var game = {
     
     this.renderAnswers();
 
-    console.log(theQ)
-
     // start the timer
-    theQ.startTimer();
+    this.startTimer();
 
     // handle clicks
     $('.answer').click(function() {
       // put all of this logic back into the question object
-      theQ.stopTimer();
       $('.answer').off();
+      game.stopTimer();
       theQ.answers[$(this).data('answer')].selected = true;
-
       game.renderAnswers(true);
 
       if (theQ.answers[$(this).data('answer')].correct) {
@@ -153,7 +153,6 @@ var game = {
         setTimeout(function() {
           $('.responseContainer').text('No, the correct answer was ' + getCorrect[0].answer);
         }, 1000)
-
         
       }     
       
@@ -198,6 +197,9 @@ var game = {
       }, 1200)
     }
     
+  },
+  renderResponse: function() {
+
   },
   goToNextQuestion: function() {
      // next question test

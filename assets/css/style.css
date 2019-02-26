@@ -2,14 +2,14 @@
 body {
   font-family: 'Rubik', sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.5em;
   background: #40C1D6;
   padding: 20px;
 }
 
 .title {
-  font-size: 4em;
+  font-size: 3em;
   line-height: 1em;
   text-align: center;
   padding: 22px;
@@ -71,7 +71,7 @@ body {
 
 
 .questionText {
-  padding: 60px 40px 40px 40px;
+  padding: 60px 40px 20px 40px;
   line-height: 1.5em;
 }
 
@@ -151,14 +151,14 @@ body {
 }
 
 .answer {
-  padding: 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: white;
   margin-bottom: 20px;
   overflow: hidden;
-  border-radius: 19px;
+  border-radius: 10px;
   border: solid 1px #E6E7E8;
 }
 
