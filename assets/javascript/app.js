@@ -5,11 +5,12 @@ var game = {
   loaded: false,
   gameStarted: false,
   score: 0,
-  totalQuestions: 12,
+  totalQuestions: 2,
   currentQuestion: 0,
   maxTime: 20,
   questionTime: 0,
   questionTimer: null,
+  questions: [],
   startTimer: function() {
     this.questionTime = this.maxTime;
     this.questionTimer = setInterval(function() {
@@ -18,24 +19,24 @@ var game = {
       if (this.questionTime === 0) {
         this.stopTimer();
         this.renderAnswers(true);
+        this.renderResponse(false, true);
       }
     }.bind(this), 1000)
   },
   stopTimer: function() {
     clearInterval(this.questionTimer)
   },
-  questions: [],
   startGame: function() {
     // set up the initial variables
     this.loaded = false;
     this.gameStarted = false;
     this.score = 0;
-    this.totalQuestions = 12;
     this.currentQuestion = 0;
-    this.questionsAnswered = [];
+    this.questions = [];
+    this.questionTime = 0,
+    this.questionTimer = null,
     this.setupGame();
     this.getQuestions();
-
   },
   shuffle: function(a) {
     var j, x, i;
@@ -122,6 +123,7 @@ var game = {
     return timer;
   },
   setupQuestion: function() {
+    $('.responseContainer').removeClass('answered');
     $('.questionContainer').empty();
     $('.responseContainer').empty();
     this.renderTimer(this.maxTime);
@@ -137,25 +139,11 @@ var game = {
 
     // handle clicks
     $('.answer').click(function() {
-      // put all of this logic back into the question object
       $('.answer').off();
       game.stopTimer();
       theQ.answers[$(this).data('answer')].selected = true;
       game.renderAnswers(true);
-
-      if (theQ.answers[$(this).data('answer')].correct) {
-        $('.responseContainer').text('Good job!');
-      } else {
-        var getCorrect = theQ.answers.filter(function(ques){
-          return ques.correct === true
-        })
-
-        setTimeout(function() {
-          $('.responseContainer').text('No, the correct answer was ' + getCorrect[0].answer);
-        }, 1000)
-        
-      }     
-      
+      game.renderResponse(theQ.answers[$(this).data('answer')].correct)      
     });
     
   },
@@ -190,23 +178,45 @@ var game = {
 
       $('.answersContainer').append(myAnswer)
     });
-
-    if (grade !== undefined) {
-      setTimeout(function(){
-        game.goToNextQuestion();
-      }, 1200)
-    }
     
   },
-  renderResponse: function() {
+  renderResponse: function(correct, timesup) {
+    $('.responseContainer').addClass('answered');
+
+    if (correct) {
+      $('.responseContainer').append('<h1>Good job!</h1>');
+      game.goToNextQuestion();
+    } else {
+      var getCorrect = this.questions[this.currentQuestion].answers.filter(function(ques){
+        return ques.correct === true
+      })
+
+      if (timesup) {
+        $('.responseContainer').append("<h1>Time's up!</h1>");
+      }  else {
+        $('.responseContainer').append('<h1>Incorrect.</h1>');
+      }
+      setTimeout(function() {
+        $('.responseContainer').append('<p>The correct answer is ' + getCorrect[0].answer + '</p>');
+        game.goToNextQuestion();
+      }, 1000)
+
+    }
 
   },
+
   goToNextQuestion: function() {
-     // next question test
-     setTimeout(function() {
-      game.currentQuestion += 1;
-      game.setupQuestion();
+    setTimeout(function() {
+      if (game.currentQuestion < game.questions.length - 1) {
+        game.currentQuestion += 1;
+        game.setupQuestion();
+      } else {
+        game.finishGame();
+      }
     }, 3000);
+  },
+  finishGame: function() {
+    console.log('finished')
   }
 }
 
