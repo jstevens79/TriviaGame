@@ -5,7 +5,7 @@ var game = {
   loaded: false,
   gameStarted: false,
   score: 0,
-  totalQuestions: 2,
+  totalQuestions: 12,
   currentQuestion: 0,
   maxTime: 20,
   questionTime: 0,
@@ -26,17 +26,45 @@ var game = {
   stopTimer: function() {
     clearInterval(this.questionTimer)
   },
-  startGame: function() {
-    // set up the initial variables
+  setupGame: function() {
+    // set up initial variables
     this.loaded = false;
     this.gameStarted = false;
     this.score = 0;
     this.currentQuestion = 0;
     this.questions = [];
-    this.questionTime = 0,
-    this.questionTimer = null,
-    this.setupGame();
+    this.questionTime = 0;
+    this.questionTimer = null;
+    
+    var title = $('<h1>')
+      .addClass('title')
+      .html('<i class="fas fa-star"></i> Movie Trivia <i class="fas fa-star"></i>');
+    var gameWrapper = $('<div>').addClass('gameWrapper');
+    var startScreen = $('<div>').addClass('startScreen');
+    var startText = $('<h2>').text('Test your movie knowledge!');
+    var startButton = $('<button>').attr('id', 'startGame').text('Start!');
+    startScreen.append(startText, startButton);
+    gameWrapper.append(startScreen);
+    gameWrapper.append()
+    $('body').prepend(title, gameWrapper);
+
+    $('#startGame').click(function() {
+      $(this).off();
+      this.startGame();
+    }.bind(this))
+
+  },
+  startGame: function() {
+    this.gamestarted = true;
     this.getQuestions();
+    var questionArea = $('<div>').addClass('questionArea');
+    var responseContainer = $('<div>').addClass('responseContainer');
+    var questionsContainer = $('<div>').addClass('questionContainer');
+    questionArea.append(questionsContainer, responseContainer)
+    var timer = $('<div>').addClass('timerContainer').append(this.createTimer());
+    $('.gameWrapper').empty()
+    $('.gameWrapper').append(questionArea, timer);
+    
   },
   shuffle: function(a) {
     var j, x, i;
@@ -98,19 +126,7 @@ var game = {
     }.bind(this));    
 
   },
-  setupGame: function() {
-    var title = $('<h1>')
-      .addClass('title')
-      .html('<i class="fas fa-star"></i> Movie Trivia <i class="fas fa-star"></i>');
-    var gameWrapper = $('<div>').addClass('gameWrapper');
-    var questionArea = $('<div>').addClass('questionArea');
-    var responseContainer = $('<div>').addClass('responseContainer');
-    var questionsContainer = $('<div>').addClass('questionContainer');
-    questionArea.append(questionsContainer, responseContainer)
-    var timer = $('<div>').addClass('timerContainer').append(this.createTimer());
-    gameWrapper.append(questionArea, timer);
-    $('body').prepend(title, gameWrapper);
-  },
+  
   createTimer: function() {
     var timer = $('<div>').addClass('timer');
     var timerText = $('<span>').addClass('timerText').append('00:00');
@@ -222,5 +238,5 @@ var game = {
 
 
 $(document).ready(function() {
-  game.startGame()
+  game.setupGame()
 })

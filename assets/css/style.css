@@ -26,11 +26,54 @@ body {
 
 .gameWrapper {
   max-width: 1180px;
+  min-height: 300px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   border-radius: 18px;
   overflow: hidden;
+}
+
+.startScreen {
+  padding: 20px;
+  background: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.startScreen h2 {
+  margin-bottom: 40px;
+}
+
+#startGame {
+  background: #E83439;
+  color: white;
+  border-radius: 8px;
+  padding: .45em 1.4em;
+  font-size: 1.3em;
+  letter-spacing: 2px;
+  border: none;
+  max-width: 200px;
+  align-self: center;
+  cursor: pointer;
+}
+
+#startGame:hover {
+  background: rgb(255, 57, 63);
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
+}
+
+#startGame:active {
+  background: rgb(167, 32, 37);
+  outline: none;
+}
+
+#startGame:focus {
+  outline: 0;
 }
 
 .questionArea {
