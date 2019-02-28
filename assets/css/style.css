@@ -46,7 +46,8 @@ body {
 }
 
 .startScreen h2 {
-  margin-bottom: 40px;
+  font-size: 1.6em;
+  margin-bottom: .5em;
 }
 
 #startGame {
@@ -57,9 +58,9 @@ body {
   font-size: 1.3em;
   letter-spacing: 2px;
   border: none;
-  max-width: 200px;
   align-self: center;
   cursor: pointer;
+  margin-top: 1.2em;
 }
 
 #startGame:hover {

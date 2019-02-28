@@ -5,7 +5,7 @@ var game = {
   loaded: false,
   gameStarted: false,
   score: 0,
-  totalQuestions: 12,
+  totalQuestions: 3,
   currentQuestion: 0,
   maxTime: 20,
   questionTime: 0,
@@ -126,7 +126,6 @@ var game = {
     }.bind(this));    
 
   },
-  
   createTimer: function() {
     var timer = $('<div>').addClass('timer');
     var timerText = $('<span>').addClass('timerText').append('00:00');
@@ -201,6 +200,7 @@ var game = {
 
     if (correct) {
       $('.responseContainer').append('<h1>Good job!</h1>');
+      game.score++;
       game.goToNextQuestion();
     } else {
       var getCorrect = this.questions[this.currentQuestion].answers.filter(function(ques){
@@ -232,7 +232,23 @@ var game = {
     }, 3000);
   },
   finishGame: function() {
-    console.log('finished')
+    var percentage = Math.round((game.score / game.totalQuestions) * 100);
+    var perc = $('<h2>').text(percentage + '%');
+    var responseText = (percentage >= 70) ? 'Good job!' : "Well, that didn't go so well."
+    var finishText = $('<p>').text('You got ' + game.score  + ' out of ' + game.totalQuestions + ' correct.');
+    var finishResponse = $('<p>').text(responseText);
+    var startButton = $('<button>').attr('id', 'startGame').text('Play again!');
+    var startScreen = $('<div>').addClass('startScreen');
+    startScreen.append(perc, finishText, finishResponse, startButton);
+    var tryAgain = $('#startButton')
+    $('.gameWrapper').empty();
+    $('.gameWrapper').append(startScreen);
+
+    $('#startGame').click(function() {
+      $(this).off();
+      this.startGame();
+    }.bind(this))
+
   }
 }
 
