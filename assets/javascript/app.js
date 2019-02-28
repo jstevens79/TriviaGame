@@ -33,8 +33,9 @@ var game = {
     var gameWrapper = $('<div>').addClass('gameWrapper');
     var startScreen = $('<div>').addClass('startScreen');
     var startText = $('<h2>').text('Test your movie knowledge!');
+    var startImage = $('<img>').attr('src', './assets/images/movie-image.png').addClass('movieImage');
     var startButton = $('<button>').attr('id', 'startGame').text('Start!');
-    startScreen.append(startText, startButton);
+    startScreen.append(startImage, startText, startButton);
     gameWrapper.append(startScreen);
     gameWrapper.append()
     $('body').prepend(title, gameWrapper);
@@ -163,6 +164,8 @@ var game = {
 
     var answers = this.questions[this.currentQuestion].answers;
     $('.answersContainer').empty();
+
+    var answersReady = [];
     
     $.each(answers, function(ind, val){
 
@@ -180,16 +183,16 @@ var game = {
           }
         } else {
           if (val.correct) {
-            myAnswer.addClass('disabled unselected correct')
+            myAnswer.addClass('disabled unselected correct');
           } else {
-            myAnswer.addClass('disabled wrong')
+            myAnswer.addClass('disabled wrong');
           }
         }
-
       }
-
-      $('.answersContainer').append(myAnswer)
+      answersReady.push(myAnswer);
     });
+
+    $('.answersContainer').append(answersReady);
     
   },
   renderResponse: function(correct, timesup) {
@@ -230,13 +233,15 @@ var game = {
   },
   finishGame: function() {
     var percentage = Math.round((game.score / game.totalQuestions) * 100);
-    var perc = $('<h2>').text(percentage + '%');
+    var perc = $('<h2>').text(percentage + '%').addClass('percentage');
     var responseText = (percentage >= 70) ? 'Good job!' : "Well, that didn't go so well."
-    var finishText = $('<p>').text('You got ' + game.score  + ' out of ' + game.totalQuestions + ' correct.');
+    var finishText = $('<p>')
+      .text('You got ' + game.score  + ' out of ' + game.totalQuestions + ' correct.')
+      .addClass('scoreDetails');
     var finishResponse = $('<p>').text(responseText);
     var startButton = $('<button>').attr('id', 'startGame').text('Play again!');
     var startScreen = $('<div>').addClass('startScreen');
-    startScreen.append(perc, finishText, finishResponse, startButton);
+    startScreen.append(perc, finishResponse, finishText, startButton);
     var tryAgain = $('#startButton')
     $('.gameWrapper').empty();
     $('.gameWrapper').append(startScreen);
