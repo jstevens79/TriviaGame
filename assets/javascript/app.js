@@ -3,9 +3,8 @@
 // set up a new game
 var game = {
   loaded: false,
-  gameStarted: false,
   score: 0,
-  totalQuestions: 3,
+  totalQuestions: 12,
   currentQuestion: 0,
   maxTime: 20,
   questionTime: 0,
@@ -27,15 +26,7 @@ var game = {
     clearInterval(this.questionTimer)
   },
   setupGame: function() {
-    // set up initial variables
-    this.loaded = false;
-    this.gameStarted = false;
-    this.score = 0;
-    this.currentQuestion = 0;
-    this.questions = [];
-    this.questionTime = 0;
-    this.questionTimer = null;
-    
+    // set up initial variables    
     var title = $('<h1>')
       .addClass('title')
       .html('<i class="fas fa-star"></i> Movie Trivia <i class="fas fa-star"></i>');
@@ -55,7 +46,13 @@ var game = {
 
   },
   startGame: function() {
-    this.gamestarted = true;
+    this.loaded = false;
+    this.gameStarted = false;
+    this.score = 0;
+    this.currentQuestion = 0;
+    this.questions = [];
+    this.questionTime = 0;
+    this.questionTimer = null;
     this.getQuestions();
     var questionArea = $('<div>').addClass('questionArea');
     var responseContainer = $('<div>').addClass('responseContainer');
